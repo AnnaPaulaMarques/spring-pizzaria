@@ -18,15 +18,17 @@ public class Pedido {
     @Id
     private Long numPedido;
 
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+    private List<ItensPedido> listaItens;
+
     private LocalDateTime dataHora;
-    @OneToMany
-    private List<Pizza> pizza;
-    @OneToMany
-    private List<Bebida> bebida;
-    @OneToOne
+
+    @ManyToOne
+    @JoinColumn(name = "id")
     private Cliente cliente;
-    @OneToOne
-    private Fornada fornada;
+
+    @ManyToMany(mappedBy = "pedidos")
+    private List<Fornada> fornada;
 
 
 }

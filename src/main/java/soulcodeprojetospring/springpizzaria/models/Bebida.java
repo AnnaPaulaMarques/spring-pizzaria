@@ -1,12 +1,11 @@
 package soulcodeprojetospring.springpizzaria.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,10 +15,19 @@ public class Bebida {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    private Long id;
+    private Long idBebida;
 
     private Integer quantidade;
 
-    private String descrição;
+    private Float preço;
 
+    private String descricao;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "item_pedido_bebida",
+            joinColumns = @JoinColumn(name = "id_pedido"),
+            inverseJoinColumns = @JoinColumn(name = "id_bebida")
+    )
+    private List<ItensPedido> itensPedido;
 }

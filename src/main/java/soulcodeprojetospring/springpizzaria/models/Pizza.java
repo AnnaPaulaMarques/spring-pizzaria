@@ -17,16 +17,22 @@ public class Pizza {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    private Long id;
+    private Long idPizza;
 
     private String nome;
-    private Float preço;
+    private Float preco;
     private Boolean personalizada;
 
-    @OneToOne
-    private Tamanho tamanho;
-    @OneToMany
-    private List<Ingrediente> ingrediente;
 
+    @OneToMany
+    private List<Ingrediente> listaIngredientes;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "item_pedido_pizza",
+            joinColumns = @JoinColumn(name = "id_pedido"),
+            inverseJoinColumns = @JoinColumn(name = "id_pizza")
+    )
+    private List<ItensPedido> itensPedido;
 
 }

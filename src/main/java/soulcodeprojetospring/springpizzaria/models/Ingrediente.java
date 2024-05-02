@@ -21,4 +21,6 @@ public class Ingrediente {
 
     private String nome;
     private Float preco;
+
 }
+

@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,5 +21,8 @@ public class Cliente {
     private String endereco;
     private String login;
     private String senha;
+
+    @OneToMany(mappedBy = "cliente")
+    private List<Pedido> pedido;
 
 }

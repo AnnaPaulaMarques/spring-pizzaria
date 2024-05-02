@@ -1,6 +1,6 @@
 # spring-pizzaria
 
-Este projeto consiste no desenvolvimento de uma aplicação de pizzaria utilizando o framework Spring.
+Este projeto consiste no desenvolvimento de uma aplicação de um sistema para uma pizzaria utilizando o framework Spring.
 
 ## Funcionalidades
 
